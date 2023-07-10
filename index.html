@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Registration</title>
+</head>
+<body>
+    <div class="container-fluid">
+       <nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="container-fluid">
+    <a class="navbar-brand ps-5" href="#" >ONLINE REGISTRATION</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-transform-upercase" id="navbarNav">
+      <ul class="navbar-nav ms-auto pe-5">
+        <li class="nav-item">
+            <i class="fa fa-registered" style="font-size:36px"></i>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " onclick="registrationForm()" href="#">REGISTRATION</a>
+        </li>
+        <li class="nav-item">
+            <i class="fa fa-sign-in" style="font-size:36px; cursor: pointer;"></i>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" onclick="loginFunction();" style="cursor: pointer;">LOGIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="Logout()">LOGOUT</a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+    </div>
+    
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-3 col-md-3 col-sm-12"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <!--form-->
+                <form action="loginInfo.html" class="was-validated form-bg p-5" id="form">
+                  <div class="alert alert-danger" role="alert" id="error_message" style="display: none;">
+                  </div>
+                  <!--image upload-->
+                  <div class="mb-3 mt-3">
+                    <img id="image" width="100" height="100" style="display: none;" />
+                    <label for="img" class="form-label">Upload picture:</label>
+                    <div>
+                     
+                      <input type="file" onchange="saveImag(this)">
+
+                  </div>
+                  <div id="fileDisplayArea"></div>
+                  </div>
+                    <div class="mb-3 mt-3">
+                      <label for="uname" class="form-label">Username:</label>
+                      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+                      <!-- <div class="valid-feedback">Valid.</div>
+                      <div class="invalid-feedback">Please fill out this field.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" >
+                        <!-- <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div> -->
+                      </div>
+                    <div class="mb-3">
+                      <label for="pwd" class="form-label">Password:</label>
+                      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+                      <!-- <div class="valid-feedback">Valid.</div>
+                      <div class="invalid-feedback">Please fill out this field.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender:</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input1" id="Male" name="gender" value="Male" > Male
+                            <label class="form-check-label" for="radio1"></label>
+                          </div>
+                          <div class="form-check">
+                            <input type="radio" class="form-check-input1" id="Female" name="gender" value="Female"> Female
+                            <label class="form-check-label" for="radio2"></label>
+                          </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" id="city">
+                            <option value="">Select City</option>
+                            <option value="Lahore">Lahore</option>
+                            <option value="kasure">Kasure</option>
+                            <option value="faisalabad">Faisalabad</option>
+                            <option value="sekhupura">Sekhupura</option>
+                            <option value="multan">Multan</option>
+                            <option value="islamabad">Islamabad</option>
+                            <option value="karachi">Karachi</option>
+                            <option value="okara">Okara</option>
+                            <option value="kanganpur">kanganpur</option>
+                        </select>
+
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="skill" class="form-label">Skills:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="HTML" name="option1" value="HTML" >
+                            <label class="form-check-label">HTML</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="CSS" name="option1" value="CSS">
+                            <label class="form-check-label">CSS</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Bootstrap" name="option1" value="Bootstrap">
+                            <label class="form-check-label">Bootstrap</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="JavaScript" name="option1" value="JavaScript">
+                            <label class="form-check-label">JavaScript</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Quasar" name="option1" value="Quasar">
+                            <label class="form-check-label">Qusar</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Jquery" name="option1" value="Jquery">
+                            <label class="form-check-label">Jquery</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Ajax" name="option1" value="Ajax">
+                            <label class="form-check-label">AJX</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="PHP" name="option1" value="PHP">
+                            <label class="form-check-label">PHP</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="PHP Laravel" name="option1" value="PHP Laravel">
+                            <label class="form-check-label">PHP Lara Laravel</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Mysql" name="option1" value="Mysql">
+                            <label class="form-check-label">My Sql</label>
+                          </div>
+
+                    </div>
+                    
+                    <button type="button"  onclick="getData()" class="btn btn-primary" id="register_button">Submit</button>
+                    <button type="button"  onclick="getData()" class="btn btn-primary" id="update_button" style="display: none;">Update</button>
+                  </form>
+                  
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12"></div>
+        </div>
+    </div>
+    <!--login form-->
+    <section style="display: none; " id="login-section">
+      <div class="row mt-5">
+        <div class="col-lg-3 col-md -3 col-sm-12"></div>
+        <div class="col-lg-6 col-md -6 col-sm-12">
+            <form  class="was-validated form-bg p-5 " id="form-bg">
+              <div class="alert alert-danger" role="alert" id="error_message2" style="display: none;">
+              </div>
+                <div class="mb-3 mt-3">
+              
+                  <label for="email" class="form-label">Enter Email:</label>
+                  <input type="email" class="form-control" id="email_log" placeholder="Enter Email" name="email">
+                  <!-- <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please Enter Correct Phone Number .</div> -->
+                </div>
+                <div class="mb-3">
+                  <label for="pwd" class="form-label">Password:</label>
+                  <input type="password" class="form-control" id="pwd_log" placeholder="Enter password" name="pswd" required>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please Enter Password.</div>
+                </div>
+                <div class="form-check mb-3">
+                  <!-- <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required> -->
+                  <label class="form-check-label" for="myCheck">I agree.</label>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Check this checkbox to continue.</div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="loginValidation()">Submit</button>
+              </form>
+              
+        </div>
+        <div class="col-lg-3 col-md -3 col-sm-12"></div>
+      </div>
+    </section>
+    <!--Dashbord-->
+    <section id="dashbord" style="display: none;">
+      <div class="row">
+        <div class="col dashbord_record">
+          <img id="profile_img" width="100" height="100" style="border-radius: 100%;"  />
+          
+          <h2>The student name is :<span  id="sd_name"></span></h2>
+          <h2>The student Email is :<span id="sd_email"></span></h2>
+          <h2>student password is :<span id="sd_password"></span></h2>
+          <h2>student gender is :<span id="sd_gender"></span></h2>
+          <h2>The student City is :<span id="sd_city"></span></h2>
+          <h2>The student Skills is :<span id="sd_skills"></span></h2>
+          <!-- <button type="button" id="update"  class="btn btn-success text-white" onclick="updateData();">Update</button> -->
+          <button type="button" id="edit" class="btn btn-success text-white" onclick="editData();"><i class='fa fa-edit' style='font-size:26px'></i>Edit</button>
+        </div>
+      </div>
+
+    </section>
+
+<script>
+    
+    let user = {};
+    let is_edit = false
+
+    function saveImag(event) {
+      let image = window.URL.createObjectURL(event.files[0])
+      document.getElementById('image').src = image
+      document.getElementById('image').style.display = 'block'
+
+      user.image = image
+    }
+   
+    function getData(){
+      let error_div = document.getElementById('error_message');
+        error_div.style.display = "none"; // hide error div
+     
+    //  image data
+//     window.onload = function() {
+
+// var fileInput = document.getElementById('fileInput');
+// var fileDisplayArea = document.getElementById('fileDisplayArea');
+
+
+// fileInput.addEventListener('change', function(e) {
+//     var file = fileInput.files[0];
+//     console.log(file)
+//     var imageType = /image.*/;
+
+//     if (file.type.match(imageType)) {
+//         var reader = new FileReader();
+
+//         reader.onload = function(e) {
+//             fileDisplayArea.innerHTML = "";
+
+//             var img = new Image();
+//             img.src = reader.result;
+
+//             fileDisplayArea.appendChild(img);
+//         }
+
+//         reader.readAsDataURL(file); 
+//     } else {
+//         fileDisplayArea.innerHTML = "File not supported!"
+//     }
+// });
+
+// }
+    // image function end
+      
+        let name1 =document.getElementById('uname').value;
+        let email =document.getElementById('email').value;
+        let password =document.getElementById('pwd').value;
+        let gender =document.querySelector('input[name=gender]:checked').value;
+        let city =document.getElementById('city').value;
+    
+        const checkedBoxes = [...document.querySelectorAll('.form-check-input:checked')].map(e => e.value);  
+  
+  if(!name1) {
+      error_div.innerText = "Name is required"
+      error_div.style.display = "block";
+      window.scrollTo(0, 0);
+      return
+  }
+  if(!email) {
+      error_div.innerText = "Email is required"
+      error_div.style.display = "block";
+      window.scrollTo(0, 0);
+      return
+
+  }
+  if(!password) {
+      error_div.innerText = "Password is required"
+      error_div.style.display = "block";
+      window.scrollTo(0, 0);
+      return
+
+  }
+  if(!gender) {
+      error_div.innerText = "Gender is required"
+      error_div.style.display = "block";
+      window.scrollTo(0, 0);
+      return
+
+  }
+  if(!city) {
+      error_div.innerText = "City is required"
+      error_div.style.display = "block";
+      window.scrollTo(0, 0);
+      return
+
+  }
+  if(checkedBoxes.length == 0) {
+          error_div.innerText = "Please select atleaset one skill"
+          error_div.style.display = "block";
+          window.scrollTo(0, 0);
+      return
+        }
+
+  // after all validation
+
+        user.name = name1
+        user.email = email
+        user.password = password
+        user.gender=gender
+        user.city = city
+        user.skills = checkedBoxes
+        // user.image=image
+        console.log(user)
+        // console.log(checkedBoxes);
+        if(is_edit) {
+          alert("Profile Update Successfully!")
+          document.getElementById('sd_name').innerHTML=user.name;
+        document.getElementById('sd_email').innerHTML=user.email;
+        document.getElementById('sd_password').innerHTML=user.password;
+        document.getElementById('sd_gender').innerHTML=user.gender;
+        document.getElementById('sd_city').innerHTML=user.city;
+        document.getElementById('sd_skills').innerHTML=user.skills;
+        document.getElementById('profile_img').src = user.image
+        document.getElementById("form").style.display = "none";
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById('dashbord').style.display="block";
+      is_edit = false
+        } else {
+          alert("successfully registered")
+        document.getElementById("form").style.display = "none";
+      document.getElementById("login-section").style.display = "block";
+      document.getElementById('dashbord').style.display="none";
+        }
+        
+      document.getElementById("form").reset();
+
+
+    }
+    function registrationForm()
+    {
+      document.getElementById("form").style.display = "block";
+      document.getElementById("login-section").style.display = "none";
+    }
+    function loginFunction()
+    {
+      document.getElementById("form").style.display = "none";
+      document.getElementById("login-section").style.display = "block";
+      document.getElementById('dashbord').style.display="none";
+    }
+   
+    //logIn form validation
+    function loginValidation()
+    {   
+      let error_div2 = document.getElementById('error_message2');
+        error_div2.style.display = "none";
+      let log_email=document.getElementById('email_log').value;
+   
+   let log_password=document.getElementById('pwd_log').value;
+   console.log(log_email);
+   console.log(user);
+      if(log_email===user.email)
+      {
+        if(log_password===user.password)
+        {
+        document.getElementById('dashbord').style.display="block";
+        document.getElementById('form').style.display="none";
+        document.getElementById('login-section').style.display="none";
+        document.getElementById('sd_name').innerHTML=user.name;
+        document.getElementById('sd_email').innerHTML=user.email;
+        document.getElementById('sd_password').innerHTML=user.password;
+        document.getElementById('sd_gender').innerHTML=user.gender;
+        document.getElementById('sd_city').innerHTML=user.city;
+        document.getElementById('sd_skills').innerHTML=user.skills;
+        document.getElementById('profile_img').src = user.image
+
+        document.getElementById("form-bg").reset();
+
+        
+        
+        }
+        else
+        {
+          error_div2.innerText = "Incorrect Password"
+          error_div2.style.display = "block";
+          window.scrollTo(0, 0);
+          
+          return
+        }
+      }
+      else
+      {
+      error_div2.innerText = "Incorrect Email "
+      error_div2.style.display = "block";
+      window.scrollTo(0, 0);
+      return
+      }
+    }
+function editData() {
+  is_edit = true
+      document.getElementById("form").style.display = "block";
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById('dashbord').style.display="none";
+        document.getElementById('uname').value = user.name;
+        document.getElementById('email').value=user.email;
+        document.getElementById('pwd').value=user.password;
+        document.getElementById(user.gender).checked = true;
+        // document.getElementsById('Male').checked= true;
+        document.getElementById('city').value=user.city;
+        // document.getElementById('sd_skills').value=user.skills;
+
+        for(let i =0; i< user.skills.length; i++) {
+          document.getElementById(user.skills[i]).checked =1
+        }
+        document.getElementById('register_button').style.display="none";
+        document.getElementById('update_button').style.display="block";
+        
+};
+const Logout = () => {
+  window.localStorage.clear();
+  window.location.reload(true);
+  window.location.replace('/');
+};
+   
+</script>
+
+</body>
+</html>
